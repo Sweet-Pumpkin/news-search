@@ -5,8 +5,6 @@ import { useInView } from "react-intersection-observer";
 // redux
 import { useDispatch } from "react-redux";
 import { UpdateHistory } from "../reducer/HistoryReducer";
-// api
-import { API_KEY } from "../api";
 // uuid
 import { v4 as uuid } from "uuid";
 // react-loading
@@ -18,6 +16,8 @@ import Article from "../components/Artice";
 import { MainStyle } from "../styles/MainStyle";
 
 export default function Main() {
+  // api key
+  const API_KEY = process.env.REACT_APP_API_KEY
   // input value
   const [input, setInput] = useState("");
   // search(api) value
