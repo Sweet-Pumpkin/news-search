@@ -8,20 +8,19 @@ const HistoryReducer = createSlice({
       // history name
       const name = action.payload.value
       // if history name length is over 4 or history name is overlab
-      if (state.length > 4 || state.findIndex(i => i.value === name)) {
+      if (state.length > 4) {
         return [
           { ...action.payload },
           ...state.filter(item => item.value !== name).slice(0, 4),
         ]
-      }  else {
+      } else {
         return [
           { ...action.payload },
-          ...state,
+          ...state.filter(item => item.value !== name),
         ]
       }
     },
     DeleteHistory: (state, action) => {
-      console.log(action.payload)
       const filterState = state.filter(item => item.id !== action.payload);
       return filterState;
     }
