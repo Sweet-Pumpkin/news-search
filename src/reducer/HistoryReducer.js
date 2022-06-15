@@ -23,7 +23,7 @@ const HistoryReducer = createSlice({
     DeleteHistory: (state, action) => {
       const filterState = state.filter(item => item.id !== action.payload);
       return filterState;
-    }
+    },
   }
 })
 

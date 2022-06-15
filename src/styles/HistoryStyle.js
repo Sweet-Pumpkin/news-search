@@ -23,6 +23,8 @@ export const HistoryStyle = styled.div`
 
       .value {
         line-height: 1.3;
+        cursor: pointer;
+        margin-right: 5px;
       }
 
       button {

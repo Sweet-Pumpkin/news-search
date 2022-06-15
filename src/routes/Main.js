@@ -34,6 +34,8 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
   // react-redux dispatch
   const dispatch = useDispatch();
+  // update input from history
+  const [updateInput, setUpdateInput] = useState("");
 
   // searching article
   useEffect(() => {
@@ -91,6 +93,15 @@ export default function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search])
 
+  // update input from history
+  useEffect(() => {
+    if (!updateInput.trim()) {
+      return;
+    } else {
+      setInput(updateInput);
+    }
+  }, [updateInput])
+
   return (
     <MainStyle>
 
@@ -106,7 +117,7 @@ export default function Main() {
       </div>
 
       {/* SEARCH HISTORY */}
-      { history && <div onMouseDown={e => e.preventDefault()}><History /></div> }
+      { history && <div onMouseDown={e => e.preventDefault()}><History update={setUpdateInput} /></div> }
 
       {/* ARTICLES */}
       {

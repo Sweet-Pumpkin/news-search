@@ -9,7 +9,7 @@ import { HistoryStyle } from "../styles/HistoryStyle";
 import search from "../assets/search.svg"
 import deleteBtn from "../assets/delete.svg"
 
-export default function History() {
+export default function History({ update }) {
   // react-redux useSelector & useDispatch
   const historys = useSelector(state => state.history);
   const dispatch = useDispatch();
@@ -17,6 +17,10 @@ export default function History() {
   // delete history
   const onClick = (e) => {
     dispatch(DeleteHistory(e.target.id));
+  }
+
+  const handleUpdateInput = (e) => {
+    update(e.target.id);
   }
 
   return (
@@ -29,7 +33,7 @@ export default function History() {
             historys.map(history => (
               <div className="history" key={history.id}>
                 <img className="search" src={search} alt="img" />
-                <div className="value">
+                <div className="value" onClick={handleUpdateInput} id={history.value}>
                   {history.value}
                 </div>
                 <button onClick={onClick}>
