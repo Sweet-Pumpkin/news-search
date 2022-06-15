@@ -117,7 +117,11 @@ export default function Main() {
       </div>
 
       {/* SEARCH HISTORY */}
-      { history && <div onMouseDown={e => e.preventDefault()}><History update={setUpdateInput} /></div> }
+      { history && 
+        <div onMouseDown={e => e.preventDefault()}>
+          <History setUpdateInput={setUpdateInput} />
+        </div> 
+      }
 
       {/* ARTICLES */}
       {

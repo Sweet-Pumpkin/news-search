@@ -9,7 +9,7 @@ import { HistoryStyle } from "../styles/HistoryStyle";
 import search from "../assets/search.svg"
 import deleteBtn from "../assets/delete.svg"
 
-export default function History({ update }) {
+export default function History({ setUpdateInput }) {
   // react-redux useSelector & useDispatch
   const historys = useSelector(state => state.history);
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function History({ update }) {
   }
 
   const handleUpdateInput = (e) => {
-    update(e.target.id);
+    setUpdateInput(e.target.id);
   }
 
   return (
