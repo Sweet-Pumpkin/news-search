@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import Clips from '../components/Clips';
 import NoClip from '../components/NoClip';
 
-export default function URL() {
+export default function ClipMain() {
   // react-redux
   const myClips = useSelector(state => state.scrap);
   //
