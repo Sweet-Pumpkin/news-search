@@ -10,7 +10,7 @@ export default function Header() {
     <HeaderStyle>
       <div className="header">
         <Link className="search" to="/">Search</Link>
-        <Link className="clips" to="/url">My Clips</Link> 
+        <Link className="clips" to="/clip">My Clips</Link> 
       </div>
     </HeaderStyle>
   )
