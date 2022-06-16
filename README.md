@@ -83,7 +83,7 @@
   - 기사를 unclip하면 더이상 "/clip"에서 확인할 수 없다.
 ```
 
-  - [](./img/06clip.gif)
+  ![](./img/06clip.gif)
 
   - Redux로 clip 상태 관리하기 
 
