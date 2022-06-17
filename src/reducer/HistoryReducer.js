@@ -10,12 +10,12 @@ const HistoryReducer = createSlice({
       // if history name length is over 4 or history name is overlab
       if (state.length > 4) {
         return [
-          { ...action.payload },
+          action.payload,
           ...state.filter(item => item.value !== name).slice(0, 4),
         ]
       } else {
         return [
-          { ...action.payload },
+          action.payload,
           ...state.filter(item => item.value !== name),
         ]
       }

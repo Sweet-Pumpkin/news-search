@@ -5,8 +5,9 @@ export const ArticleScrapReducer = createSlice({
   initialState: [],
   reducers: {
     addScrap: (state, action) => {
+      console.log(action.payload);
       return [
-        { ...action.payload },
+        action.payload,
         ...state,
       ]
     },
