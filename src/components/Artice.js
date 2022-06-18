@@ -15,7 +15,8 @@ export default function Article( { article } ) {
   const confirmScrap = useSelector(state => state.scrap);
   // scrap btn management
   const [scrapBtn, setScrapBtn] = useState(false);
-  const onClick = () => {
+  const onClick = (e) => {
+    e.preventDefault();
     // true or false
     setScrapBtn(prev => !prev);
   }
@@ -30,6 +31,7 @@ export default function Article( { article } ) {
         date: article.pub_date,
         abstract: article.abstract,
         url: article.web_url,
+        img_url: article.multimedia,
       }))
     } else {
       // delete scrap
@@ -47,22 +49,39 @@ export default function Article( { article } ) {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [article])
-
+    
   return (
     <ArticleStyle>
       <div className="article">
+        {/* GO TO ARTICLE */}
         <a href={article.web_url}>
-          <h3>{article.headline.main}</h3>
+          {/* ARTICLE IMAGE */}
+          { 
+            article.multimedia.length ? 
+            <img 
+              className="mainIMG"
+              src={`https://static01.nyt.com/${article.multimedia[0].url}`} 
+              alt="img"
+            /> :
+            null
+          }
+          <div className="title-wrap">
+            {/* ARTICLE TITLE */}
+            <h3>{article.headline.main}</h3>
+            {/* SCRAP BTN */}
+            <button onClick={onClick}>
+              <img
+                className={ scrapBtn ? "on" : "off" }
+                src={star} 
+                alt="img" 
+              />
+            </button>
+          </div>
+          {/* ARTICLE DATE */}
           <span>{article.pub_date.slice(0, 10)}</span>
+          {/* ARTICLE DESCRIPTION */}
           <p>{article.abstract}</p>
         </a>
-        <button onClick={onClick}>
-          <img
-            className={ scrapBtn ? "on" : "off" }
-            src={star} 
-            alt="img" 
-          />
-        </button>
         <hr />
       </div>
     </ArticleStyle>

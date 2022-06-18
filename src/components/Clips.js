@@ -11,21 +11,36 @@ import { ClipsStyle } from '../styles/ClipsStyle';
 export default function Clips({ clip }) {
   const dispatch = useDispatch();
 
-  const onClick = () => {
-    dispatch(deleteScrap(clip.id))
+  const onClick = (e) => {
+    e.preventDefalut();
+    dispatch(deleteScrap(clip.id));
   }
 
   return (
     <ClipsStyle>
       <div className="clip">
         <a href={clip.url}>
-          <h3>{clip.title}</h3>
+          {/* ARTICLE IMAGE */}
+          { 
+            clip.img_url.length ? 
+            <img 
+              className="mainIMG"
+              src={`https://static01.nyt.com/${clip.img_url[0].url}`} 
+              alt="img"
+            /> :
+            null
+          }
+          <div className="title-wrap">
+            {/* CLIP TITLE */}
+            <h3>{clip.title}</h3>
+            {/* CLIP BTM */}
+            <button onClick={onClick}>
+            <img src={deleteSvg} alt="img" />
+            </button>
+          </div>
           <span>{clip.date.slice(0, 10)}</span>
           <p>{clip.abstract}</p>
         </a>
-        <button onClick={onClick}>
-          <img src={deleteSvg} alt="img" />
-        </button>
         <hr />
       </div>
     </ClipsStyle>
