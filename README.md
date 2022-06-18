@@ -5,7 +5,7 @@
 > - 2022.06.13~15
 > - [배포 웹 바로가기](https://elegant-medovik-ba7df8.netlify.app/)
 
-![](./img/01title.gif)
+<img align="center" src="./img/01title.gif" alt="title" />
 
 ---
 
