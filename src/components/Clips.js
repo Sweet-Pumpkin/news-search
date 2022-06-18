@@ -12,7 +12,7 @@ export default function Clips({ clip }) {
   const dispatch = useDispatch();
 
   const onClick = (e) => {
-    e.preventDefalut();
+    e.preventDefault();
     dispatch(deleteScrap(clip.id));
   }
 
