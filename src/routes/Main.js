@@ -27,7 +27,7 @@ export default function Main() {
   // page number
   const [page, setPage] = useState(1);
   // react-intersection-observer
-  const [ref, inView] = useInView({ threshold: 0.5 });
+  const [ref, inView] = useInView({ rootMargin: "0px 0px 10px 0px" });
   // history true or false
   const [history, setHistory] = useState(false)
   // react-loading true or false
