@@ -2,7 +2,6 @@
 > - 패스트캠퍼스 메가바이트 스쿨 프론트엔드 개발자 과정
 > - React 미니 프로젝트
 > - NYT API 사용해서 기사 검색 웹 만들기
-> - 2022.06.13~15
 > - [배포 웹 바로가기](https://elegant-medovik-ba7df8.netlify.app/)
 
 <div align="center">
