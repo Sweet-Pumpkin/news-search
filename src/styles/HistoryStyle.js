@@ -22,9 +22,13 @@ export const HistoryStyle = styled.div`
       }
 
       .value {
+        font-size: 18px;
         line-height: 1.3;
         cursor: pointer;
         margin-right: 5px;
+        &:hover {
+          color: #cccccc;
+        }
       }
 
       button {

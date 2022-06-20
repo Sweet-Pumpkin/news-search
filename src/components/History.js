@@ -33,10 +33,10 @@ export default function History({ setUpdateInput }) {
             historys.map(history => (
               <div className="history" key={history.id}>
                 <img className="search" src={search} alt="img" />
-                <div className="value" onClick={handleUpdateInput} id={history.value}>
+                <button className="value" onClick={handleUpdateInput} id={history.value}>
                   {history.value}
-                </div>
-                <button onClick={onClick}>
+                </button>
+                <button onClick={() => {onClick(history.id)}}>
                   <img className="trash" id={history.id} src={deleteBtn} alt="img" />
                 </button>
               </div>
