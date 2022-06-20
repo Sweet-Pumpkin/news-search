@@ -36,7 +36,7 @@ export default function History({ setUpdateInput }) {
                 <button className="value" onClick={handleUpdateInput} id={history.value}>
                   {history.value}
                 </button>
-                <button onClick={() => {onClick(history.id)}}>
+                <button onClick={onClick}>
                   <img className="trash" id={history.id} src={deleteBtn} alt="img" />
                 </button>
               </div>
