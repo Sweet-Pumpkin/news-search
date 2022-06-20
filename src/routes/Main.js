@@ -27,7 +27,7 @@ export default function Main() {
   // page number
   const [page, setPage] = useState(1);
   // react-intersection-observer
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({ threshold: 0.5 });
   // history true or false
   const [history, setHistory] = useState(false)
   // react-loading true or false
@@ -103,40 +103,41 @@ export default function Main() {
   }, [updateInput])
 
   return (
-    <MainStyle>
+    <>
+      <MainStyle>
 
-      {/* SEARCHING ARTICLE */}
-      <div className="input-wrap" onFocus={() => setHistory(true)} onBlur={() => setHistory(false)}>
-        <input 
-          className="input"
-          type="text" 
-          placeholder="Search Article..."
-          value={input} 
-          onChange={e => setInput(e.target.value)} 
-        />
-      </div>
+        {/* SEARCHING ARTICLE */}
+        <div className="input-wrap" onFocus={() => setHistory(true)} onBlur={() => setHistory(false)}>
+          <input 
+            className="input"
+            type="text" 
+            placeholder="Search Article..."
+            value={input} 
+            onChange={e => setInput(e.target.value)} 
+          />
+        </div>
 
-      {/* SEARCH HISTORY */}
-      { history && 
-        <div onMouseDown={e => e.preventDefault()}>
-          <History setUpdateInput={setUpdateInput} />
-        </div> 
-      }
-
-      {/* ARTICLES */}
-      {
-        articleValues.map(article => (
-          <Article key={article._id} article={article} />
-        ))
-      }
-
-        {/* REACT INTERSECTION OBSERVER */}
-        <div ref={ref} />
-
-        {/* REACT LOADING */}
-        { isLoading && 
-          <ReactLoading className="loading" type="spin" color="#ccc" height={24} width={24} />
+        {/* SEARCH HISTORY */}
+        { history && 
+          <div onMouseDown={e => e.preventDefault()}>
+            <History setUpdateInput={setUpdateInput} />
+          </div> 
         }
-    </MainStyle>
+
+        {/* ARTICLES */}
+        {
+          articleValues.map(article => (
+            <Article key={article._id} article={article} />
+          ))
+        }
+
+          {/* REACT LOADING */}
+          { isLoading && 
+            <ReactLoading className="loading" type="spin" color="#ccc" height={24} width={24} />
+          }
+      </MainStyle>
+      {/* REACT INTERSECTION OBSERVER */}
+      <div className="ref" ref={ref} />
+    </>
   );
 }
