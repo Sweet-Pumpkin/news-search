@@ -40,13 +40,17 @@ export default function Article( { article } ) {
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrapBtn])
 
+  // scrap // usememo
   useEffect(() => {
     const confirmId = confirmScrap.map(x => x.id);
-    for (let i = 0; confirmId.length > i; i ++) {
-      if (article._id === confirmId[i]) {
-        setScrapBtn(true);
+    confirmId.map(id => {
+      if (article._id === id) {
+        return setScrapBtn(true);
+      } else {
+        return null;
       }
-    }
+    })
+    // eslint rule
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [article])
     

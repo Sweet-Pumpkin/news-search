@@ -137,7 +137,7 @@ export default function Main() {
           }
       </MainStyle>
       {/* REACT INTERSECTION OBSERVER */}
-      <div className="ref" ref={ref} />
+      <div ref={ref} />
     </>
   );
 }
