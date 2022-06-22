@@ -19,7 +19,7 @@ export default function Clips({ clip }) {
   return (
     <ClipsStyle>
       <div className="clip">
-        <a href={clip.url}>
+        <a href={clip.url} target="_blank" rel="noopener noreferrer">
           {/* ARTICLE IMAGE */}
           { 
             clip.img_url.length ? 

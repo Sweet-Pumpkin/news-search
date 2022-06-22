@@ -54,7 +54,7 @@ export default function Article( { article } ) {
     <ArticleStyle>
       <div className="article">
         {/* GO TO ARTICLE */}
-        <a href={article.web_url}>
+        <a href={article.web_url} target="_blank" rel="noopener noreferrer">
           {/* ARTICLE IMAGE */}
           { 
             article.multimedia.length ? 
